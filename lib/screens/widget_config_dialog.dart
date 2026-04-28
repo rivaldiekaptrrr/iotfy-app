@@ -144,6 +144,7 @@ class _WidgetConfigDialogState extends State<WidgetConfigDialog> {
                     children: [
                       Expanded(
                         child: DropdownButtonFormField<WidgetType>(
+                          isExpanded: true,
                           initialValue: _selectedType,
                           decoration: const InputDecoration(
                             labelText: 'Widget Type',
@@ -424,14 +425,16 @@ class _WidgetConfigDialogState extends State<WidgetConfigDialog> {
                     ),
                     const SizedBox(height: 16),
                     // Decimal Places Selector
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Number Format: ',
+                          'Number Format:',
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
-                        const SizedBox(width: 8), // Reduced spacing
-                        Expanded(
+                        const SizedBox(height: 8),
+                        SizedBox(
+                          width: double.infinity,
                           child: SegmentedButton<int>(
                             segments: const [
                               ButtonSegment(
